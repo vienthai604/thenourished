@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nourished Mobile Massage — Calgary</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --linen:   #F4EDE3;
+    --linen2:  #EDE3D6;
+    --forest:  #1B3528;
+    --forest2: #244637;
+    --gold:    #B08B5B;
+    --terra:   #C4714A;
+    --cream:   #FAF6F0;
+    --ink:     #2A1F14;
+    --muted:   #7A6A58;
+    --border:  #D8CCBE;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-weight: 300;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4rem;
+    background: rgba(250,246,240,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: padding 0.3s;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.45rem; font-weight: 500; letter-spacing: 0.06em;
+    color: var(--forest); text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted); text-decoration: none; transition: color 0.25s;
+  }
+  .nav-links a:hover { color: var(--forest); }
+  .nav-cta {
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    background: var(--forest); color: var(--cream); padding: 0.6rem 1.5rem;
+    border: none; cursor: pointer; font-family: 'Jost', sans-serif;
+    text-decoration: none; transition: background 0.25s;
+  }
+  .nav-cta:hover { background: var(--forest2); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 22px; height: 1px; background: var(--forest); display: block; }
+
+  /* ── HERO ── */
+  #home {
+    min-height: 100vh;
+    background: var(--forest);
+    display: grid; grid-template-columns: 1fr 1fr;
+    position: relative; overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 10rem 5rem 6rem 6rem; position: relative; z-index: 2;
+  }
+  .hero-eyebrow {
+    font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.8rem;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.2rem, 5vw, 5.5rem);
+    font-weight: 300; line-height: 1.08;
+    color: var(--cream); margin-bottom: 2rem;
+  }
+  .hero-title em { font-style: italic; color: var(--gold); }
+  .hero-sub {
+    font-size: 0.9rem; color: rgba(244,237,227,0.65);
+    max-width: 380px; line-height: 1.9; margin-bottom: 3rem;
+  }
+  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    font-family: 'Jost', sans-serif; font-size: 0.72rem;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    background: var(--gold); color: var(--cream);
+    padding: 0.85rem 2rem; text-decoration: none; border: none; cursor: pointer;
+    transition: background 0.25s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: #C49B6A; transform: translateY(-1px); }
+  .btn-outline {
+    font-family: 'Jost', sans-serif; font-size: 0.72rem;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    background: transparent; color: var(--cream);
+    padding: 0.85rem 2rem; text-decoration: none;
+    border: 1px solid rgba(244,237,227,0.35); cursor: pointer;
+    transition: border-color 0.25s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-1px); }
+  .hero-right {
+    position: relative; overflow: hidden;
+  }
+  .hero-pattern {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 70% at 60% 40%, rgba(176,139,91,0.18) 0%, transparent 70%),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 40px,
+        rgba(244,237,227,0.025) 40px,
+        rgba(244,237,227,0.025) 41px
+      );
+  }
+  .hero-botanical {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 420px; height: 420px; opacity: 0.12;
+  }
+  .hero-badge {
+    position: absolute; bottom: 3rem; right: 3rem;
+    width: 120px; height: 120px; border-radius: 50%;
+    border: 1px solid rgba(176,139,91,0.4);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+  }
+  .hero-badge-inner {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.75rem; color: var(--gold);
+    letter-spacing: 0.08em; line-height: 1.5;
+  }
+  .hero-scroll {
+    position: absolute; bottom: 2.5rem; left: 6rem;
+    display: flex; align-items: center; gap: 0.8rem;
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(244,237,227,0.4);
+  }
+  .hero-scroll-line { width: 40px; height: 1px; background: rgba(244,237,227,0.3); }
+
+  /* ── SECTION BASE ── */
+  section { position: relative; }
+  .section-inner { max-width: 1180px; margin: 0 auto; padding: 0 4rem; }
+  .section-eyebrow {
+    font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem; display: block;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 400; line-height: 1.15; color: var(--forest);
+  }
+  .section-title em { font-style: italic; }
+  .divider {
+    width: 48px; height: 1px; background: var(--gold); margin: 1.8rem 0;
+  }
+
+  /* ── OUR STORY ── */
+  #story { background: var(--linen); padding: 8rem 0; }
+  .story-grid {
+    display: grid; grid-template-columns: 1fr 1.1fr;
+    gap: 6rem; align-items: start; margin-top: 5rem;
+  }
+  .story-intro p {
+    font-size: 1.05rem; line-height: 1.9; color: var(--muted);
+    margin-bottom: 1.4rem;
+  }
+  .story-intro p strong {
+    color: var(--ink); font-weight: 400;
+  }
+  .story-philosophy {
+    background: var(--forest); color: var(--cream);
+    padding: 3rem 3.5rem; position: relative;
+  }
+  .story-philosophy::before {
+    content: '\201C';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 8rem; line-height: 0.6;
+    color: rgba(176,139,91,0.25);
+    position: absolute; top: 2rem; left: 2.5rem;
+  }
+  .story-philosophy p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 300; font-style: italic;
+    line-height: 1.65; color: var(--cream); position: relative; z-index: 1;
+  }
+  .story-philosophy cite {
+    display: block; margin-top: 1.5rem;
+    font-family: 'Jost', sans-serif; font-size: 0.7rem;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold); font-style: normal;
+  }
+
+  /* ── FOUNDERS ── */
+  #founders { background: var(--cream); padding: 8rem 0; }
+  .founders-header { text-align: center; margin-bottom: 5rem; }
+  .founders-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+  }
+  .founder-card {
+    border: 1px solid var(--border); padding: 3.5rem;
+    position: relative; background: var(--linen);
+    transition: border-color 0.3s;
+  }
+  .founder-card:hover { border-color: var(--gold); }
+  .founder-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem; font-weight: 300; color: rgba(176,139,91,0.15);
+    position: absolute; top: 1.5rem; right: 2rem; line-height: 1;
+  }
+  .founder-tag {
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem; display: block;
+  }
+  .founder-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 400; color: var(--forest);
+    margin-bottom: 0.3rem;
+  }
+  .founder-role {
+    font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 1.5rem; display: block;
+  }
+  .founder-divider { width: 36px; height: 1px; background: var(--gold); margin-bottom: 1.5rem; }
+  .founder-bio { font-size: 0.92rem; color: var(--muted); line-height: 1.9; }
+  .founder-bio + .founder-bio { margin-top: 1rem; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--forest); padding: 8rem 0; }
+  #services .section-title { color: var(--cream); }
+  #services .section-eyebrow { color: var(--gold); }
+  .services-sub {
+    font-size: 0.88rem; color: rgba(244,237,227,0.55);
+    margin-top: 1rem; max-width: 480px;
+  }
+  .services-header-row {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 4rem;
+  }
+  .services-tabs {
+    display: flex; gap: 0.5rem;
+  }
+  .tab-btn {
+    font-family: 'Jost', sans-serif; font-size: 0.68rem;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 0.6rem 1.3rem; cursor: pointer;
+    border: 1px solid rgba(244,237,227,0.2);
+    background: transparent; color: rgba(244,237,227,0.5);
+    transition: all 0.25s;
+  }
+  .tab-btn.active, .tab-btn:hover {
+    background: var(--gold); border-color: var(--gold);
+    color: var(--cream);
+  }
+  .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px; }
+  .service-card {
+    background: rgba(244,237,227,0.04); border: 1px solid rgba(244,237,227,0.08);
+    padding: 3rem; transition: background 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .service-card:hover { background: rgba(244,237,227,0.07); }
+  .service-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 2px; background: var(--gold);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .service-card:hover::after { transform: scaleX(1); }
+  .service-duration {
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem; display: block;
+  }
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.85rem; font-weight: 400; color: var(--cream);
+    margin-bottom: 1rem; line-height: 1.2;
+  }
+  .service-desc { font-size: 0.88rem; color: rgba(244,237,227,0.55); line-height: 1.85; margin-bottom: 1.8rem; }
+  .service-includes {
+    list-style: none; margin-bottom: 2rem;
+  }
+  .service-includes li {
+    font-size: 0.8rem; color: rgba(244,237,227,0.45);
+    padding: 0.35rem 0; border-bottom: 1px solid rgba(244,237,227,0.06);
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .service-includes li::before {
+    content: ''; width: 4px; height: 4px; border-radius: 50%;
+    background: var(--gold); flex-shrink: 0;
+  }
+  .service-pricing {
+    display: flex; align-items: baseline; gap: 1rem;
+  }
+  .price-promo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 400; color: var(--gold);
+  }
+  .price-orig {
+    font-size: 0.88rem; color: rgba(244,237,227,0.3);
+    text-decoration: line-through;
+  }
+  .price-label {
+    font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--terra); padding: 0.2rem 0.6rem;
+    border: 1px solid rgba(196,113,74,0.4);
+  }
+
+  /* ── BOTANICAL ── */
+  #botanical { background: var(--linen2); padding: 8rem 0; }
+  .botanical-intro-grid {
+    display: grid; grid-template-columns: 1.2fr 1fr;
+    gap: 5rem; align-items: start; margin-bottom: 5rem;
+  }
+  .botanical-story { }
+  .botanical-story p { font-size: 0.95rem; color: var(--muted); line-height: 1.9; margin-bottom: 1.2rem; }
+  .heritage-feature {
+    background: var(--forest); padding: 2.5rem;
+    display: flex; flex-direction: column; gap: 2rem;
+  }
+  .heritage-item {}
+  .heritage-item h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-weight: 400; color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+  .heritage-item p { font-size: 0.82rem; color: rgba(244,237,227,0.55); line-height: 1.8; }
+  .herbs-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .herb-cell {
+    background: var(--cream); padding: 1.6rem 1.8rem;
+    transition: background 0.25s;
+  }
+  .herb-cell:hover { background: var(--linen); }
+  .herb-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-weight: 500; color: var(--forest);
+    margin-bottom: 0.1rem;
+  }
+  .herb-vn { font-size: 0.7rem; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 0.5rem; display: block; }
+  .herb-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.7; }
+
+  /* ── GIFT ── */
+  #gift { background: var(--cream); padding: 8rem 0; }
+  .gift-layout {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .gift-visual {
+    background: var(--forest); padding: 4rem; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .gift-visual::before {
+    content: '';
+    position: absolute; inset: -20px;
+    background: radial-gradient(ellipse at 60% 40%, rgba(176,139,91,0.12) 0%, transparent 65%);
+  }
+  .gift-card-mock {
+    background: var(--linen); padding: 2.5rem;
+    position: relative; z-index: 1;
+    border: 1px solid rgba(176,139,91,0.3);
+  }
+  .gift-card-label {
+    font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem; display: block;
+  }
+  .gift-card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 300; color: var(--forest); line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+  .gift-card-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem; font-weight: 400; color: var(--gold);
+  }
+  .gift-card-valid { font-size: 0.7rem; color: var(--muted); margin-top: 1rem; }
+  .gift-info { }
+  .gift-info p { font-size: 0.95rem; color: var(--muted); line-height: 1.9; margin-bottom: 1.5rem; }
+  .gift-options { margin: 2rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .gift-option {
+    border: 1px solid var(--border); padding: 1rem 1.2rem;
+    transition: border-color 0.25s, background 0.25s;
+  }
+  .gift-option:hover { border-color: var(--gold); background: var(--linen); }
+  .gift-option-name { font-size: 0.82rem; color: var(--ink); margin-bottom: 0.2rem; }
+  .gift-option-price { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--gold); }
+  .gift-steps { list-style: none; counter-reset: steps; }
+  .gift-steps li {
+    counter-increment: steps; padding: 0.8rem 0 0.8rem 3rem;
+    border-bottom: 1px solid var(--border); font-size: 0.88rem;
+    color: var(--muted); position: relative; line-height: 1.6;
+  }
+  .gift-steps li::before {
+    content: counter(steps, decimal-leading-zero);
+    position: absolute; left: 0;
+    font-family: 'Cormorant Garamond', serif; font-size: 1.2rem;
+    color: var(--gold); font-weight: 400;
+  }
+
+  /* ── PROMOTIONS ── */
+  #promotions { background: var(--linen); padding: 7rem 0; }
+  .promos-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 4rem; }
+  .promo-card {
+    background: var(--cream); border: 1px solid var(--border);
+    padding: 2.5rem; transition: all 0.3s; position: relative; overflow: hidden;
+  }
+  .promo-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 3px; background: var(--gold);
+  }
+  .promo-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+  .promo-icon {
+    width: 44px; height: 44px; background: var(--linen2);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem; font-size: 1.3rem;
+  }
+  .promo-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 400; color: var(--forest);
+    margin-bottom: 0.8rem;
+  }
+  .promo-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.8; }
+  .promo-badge {
+    display: inline-block; margin-top: 1.2rem;
+    font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase;
+    background: var(--forest); color: var(--gold); padding: 0.3rem 0.8rem;
+  }
+
+  /* ── BOOKING ── */
+  #booking { background: var(--forest); padding: 8rem 0; }
+  .booking-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  #booking .section-title { color: var(--cream); }
+  #booking .section-eyebrow { color: var(--gold); }
+  .booking-intro { font-size: 0.95rem; color: rgba(244,237,227,0.6); line-height: 1.9; margin-top: 1.5rem; }
+  .booking-contacts { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.2rem; }
+  .booking-contact {
+    display: flex; align-items: center; gap: 1.2rem;
+    padding: 1.2rem 1.5rem; border: 1px solid rgba(244,237,227,0.1);
+    background: rgba(244,237,227,0.04); transition: border-color 0.25s;
+    text-decoration: none;
+  }
+  .booking-contact:hover { border-color: var(--gold); }
+  .booking-contact-icon {
+    width: 36px; height: 36px; background: rgba(176,139,91,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
+  }
+  .booking-contact-label { font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+  .booking-contact-value { font-size: 0.9rem; color: var(--cream); }
+  .booking-policy { }
+  .policy-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 400; color: var(--cream);
+    margin-bottom: 1.8rem;
+  }
+  .policy-items { display: flex; flex-direction: column; gap: 0; }
+  .policy-item {
+    padding: 1.2rem 0; border-bottom: 1px solid rgba(244,237,227,0.1);
+    display: grid; grid-template-columns: 120px 1fr; gap: 1.5rem;
+  }
+  .policy-key {
+    font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--gold); padding-top: 0.1rem;
+  }
+  .policy-val { font-size: 0.85rem; color: rgba(244,237,227,0.55); line-height: 1.75; }
+  .booking-rhythm { margin-top: 3rem; background: rgba(244,237,227,0.04); border: 1px solid rgba(244,237,227,0.1); padding: 2rem 2.5rem; }
+  .rhythm-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-style: italic; color: var(--gold); margin-bottom: 1.2rem;
+  }
+  .rhythm-options { display: flex; flex-direction: column; gap: 0.8rem; }
+  .rhythm-option {
+    display: flex; gap: 1rem; align-items: baseline;
+    font-size: 0.83rem; color: rgba(244,237,227,0.5);
+  }
+  .rhythm-label {
+    font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gold); min-width: 70px; flex-shrink: 0;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #111D16; padding: 4rem 0 2.5rem;
+    border-top: 1px solid rgba(176,139,91,0.2);
+  }
+  .footer-inner { max-width: 1180px; margin: 0 auto; padding: 0 4rem; }
+  .footer-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 3rem;
+  }
+  .footer-brand {}
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 400; color: var(--cream); margin-bottom: 0.5rem;
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-tagline { font-size: 0.78rem; color: rgba(244,237,227,0.35); letter-spacing: 0.08em; }
+  .footer-links { display: flex; gap: 2rem; list-style: none; }
+  .footer-links a {
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(244,237,227,0.35); text-decoration: none; transition: color 0.25s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-bottom {
+    border-top: 1px solid rgba(244,237,227,0.08); padding-top: 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-copy { font-size: 0.72rem; color: rgba(244,237,227,0.25); }
+  .footer-calgary { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(176,139,91,0.4); }
+
+  /* ── REVEAL ANIMATIONS ── */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s, transform 0.7s; }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 2rem; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    #home { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 9rem 2rem 5rem; }
+    .section-inner { padding: 0 2rem; }
+    .story-grid, .founders-grid, .services-grid,
+    .botanical-intro-grid, .gift-layout, .booking-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .herbs-grid { grid-template-columns: 1fr 1fr; }
+    .promos-grid { grid-template-columns: 1fr; }
+    .gift-options { grid-template-columns: 1fr; }
+    .footer-top { flex-direction: column; gap: 2rem; }
+    .footer-links { flex-wrap: wrap; }
+    .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .services-header-row { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">Nourished<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#botanical">Botanicals</a></li>
+    <li><a href="#gift">Gift</a></li>
+    <li><a href="#promotions">Promotions</a></li>
+  </ul>
+  <a href="#booking" class="nav-cta">Book Now</a>
+  <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-left">
+    <span class="hero-eyebrow">Mobile Massage · Calgary</span>
+    <h1 class="hero-title">
+      Healing is an<br><em>act of love.</em>
+    </h1>
+    <p class="hero-sub">A sanctuary brought to your door. Every touch intentional, every ritual rooted in nature and centuries of healing wisdom.</p>
+    <div class="hero-buttons">
+      <a href="#booking" class="btn-primary">Book Your Session</a>
+      <a href="#story" class="btn-outline">Our Story</a>
+    </div>
+    <div class="hero-scroll">
+      <span class="hero-scroll-line"></span>
+      Scroll to explore
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-pattern"></div>
+    <svg class="hero-botanical" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#F4EDE3" stroke-width="0.8">
+        <circle cx="210" cy="210" r="160"/>
+        <circle cx="210" cy="210" r="120"/>
+        <circle cx="210" cy="210" r="80"/>
+        <circle cx="210" cy="210" r="40"/>
+        <ellipse cx="210" cy="210" rx="160" ry="80" transform="rotate(30 210 210)"/>
+        <ellipse cx="210" cy="210" rx="160" ry="80" transform="rotate(60 210 210)"/>
+        <ellipse cx="210" cy="210" rx="160" ry="80" transform="rotate(90 210 210)"/>
+        <ellipse cx="210" cy="210" rx="160" ry="80" transform="rotate(120 210 210)"/>
+        <ellipse cx="210" cy="210" rx="160" ry="80" transform="rotate(150 210 210)"/>
+        <line x1="210" y1="50" x2="210" y2="370"/>
+        <line x1="50" y1="210" x2="370" y2="210"/>
+        <line x1="96" y1="96" x2="324" y2="324"/>
+        <line x1="324" y1="96" x2="96" y2="324"/>
+      </g>
+    </svg>
+    <div class="hero-badge">
+      <div class="hero-badge-inner">Since<br>2025<br>Calgary</div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR STORY -->
+<section id="story">
+  <div class="section-inner">
+    <span class="section-eyebrow reveal">Our Philosophy</span>
+    <h2 class="section-title reveal reveal-delay-1">Wellness is holistic,<br><em>intentional,</em> rooted in nature.</h2>
+    <div class="story-grid">
+      <div class="story-intro reveal reveal-delay-2">
+        <div class="divider"></div>
+        <p>Nourished was born from a shared philosophy that <strong>true healing goes far beyond the physical.</strong> We started Nourished to create a sanctuary in your own home — a place where every touch, every ingredient, and every ritual is chosen to help you feel restored.</p>
+        <p>At Nourished, we offer everything we do from the heart: with deep precision, genuine intention, and a high level of care so that you feel deeply nourished after every session.</p>
+        <p>We come to you, wherever you are in Calgary, carrying decades of healing tradition, handcrafted botanicals, and an unwavering commitment to your wellbeing.</p>
+        <a href="#founders" class="btn-primary" style="margin-top:1.8rem; display:inline-block;">Meet the Co-Founders</a>
+      </div>
+      <div class="story-philosophy reveal reveal-delay-3">
+        <p>Healing was never a profession. It was a practice of love — and everyone deserves to receive it.</p>
+        <cite>— Thai &amp; Axtaxia, Co-Founders</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDERS -->
+<section id="founders">
+  <div class="section-inner">
+    <div class="founders-header reveal">
+      <span class="section-eyebrow">Meet the Healers</span>
+      <h2 class="section-title">Two practitioners.<br><em>One shared heart.</em></h2>
+    </div>
+    <div class="founders-grid">
+      <div class="founder-card reveal reveal-delay-1">
+        <div class="founder-num">01</div>
+        <span class="founder-tag">Body Massage Practitioner · For All</span>
+        <h3 class="founder-name">Thai</h3>
+        <span class="founder-role">Buddhist Monk · Tit Tar Practitioner · RMT Candidate</span>
+        <div class="founder-divider"></div>
+        <p class="founder-bio">Thai brings over two decades of lived healing experience to every session. As a Buddhist monk for 21 years, he devoted himself to a life of service, compassion, and deep study — offering massage and bodywork as an act of charity across monastery communities.</p>
+        <p class="founder-bio">Trained in Tit Tar, the ancient Malaysian art of bonesetting and therapeutic bodywork, Thai works with the body the way a monk works with the mind: slowly, intentionally, and with profound respect for what the body is carrying. Currently completing his RMT studies at Vicars.</p>
+      </div>
+      <div class="founder-card reveal reveal-delay-2">
+        <div class="founder-num">02</div>
+        <span class="founder-tag">Ancient Beauty Ritualist · For Women</span>
+        <h3 class="founder-name">Axtaxia</h3>
+        <span class="founder-role">Ancient Healing Arts · Botanical Specialist · Mindfulness Teacher</span>
+        <div class="founder-divider"></div>
+        <p class="founder-bio">Axtaxia has spent the last decade learning what it truly means to heal from the inside out. Rooted in ten years of devoted study in ancient healing techniques, mindfulness, and meditation, she brings a rare combination of precision and intuition to every session.</p>
+        <p class="founder-bio">Her practice is female-body focused and deeply intentional. She is drawn to the particular kind of tension that women carry — the weight of being everything to everyone. Her sessions are designed to find all of it and gently, beautifully let it go.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="services-header-row">
+      <div class="reveal">
+        <span class="section-eyebrow">Services &amp; Pricing</span>
+        <h2 class="section-title">Rituals crafted<br><em>with intention.</em></h2>
+        <p class="services-sub">Every service uses clean, intentional ingredients. May Promotion: 25% off all bookings.</p>
+      </div>
+      <div class="services-tabs reveal reveal-delay-2">
+        <button class="tab-btn active" onclick="showServices('all')">All</button>
+        <button class="tab-btn" onclick="showServices('body')">Body</button>
+        <button class="tab-btn" onclick="showServices('beauty')">Beauty</button>
+      </div>
+    </div>
+    <div class="services-grid" id="servicesGrid">
+
+      <div class="service-card reveal reveal-delay-1" data-type="body">
+        <span class="service-duration">Body Massage · 60 minutes</span>
+        <h3 class="service-name">Relaxation<br>Body Massage</h3>
+        <p class="service-desc">A mindful, full-body massage crafted for total relaxation. Each stroke slow and intentional, designed to lower tension, improve circulation, and leave your body feeling weightless.</p>
+        <ul class="service-includes">
+          <li>Guided breath meditation</li>
+          <li>Sound bath frequency</li>
+          <li>Nourishing body massage</li>
+        </ul>
+        <div class="service-pricing">
+          <span class="price-promo">$95</span>
+          <span class="price-orig">$125</span>
+          <span class="price-label">May Offer</span>
+        </div>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2" data-type="body">
+        <span class="service-duration">Body Massage · 90 minutes</span>
+        <h3 class="service-name">Restorative<br>Body Massage</h3>
+        <p class="service-desc">Combines the healing power of deep tissue work with full-body therapeutic techniques. Targeted pressure releases chronic tension, breaks through muscle tightness, and restores your body's natural balance.</p>
+        <ul class="service-includes">
+          <li>Guided breath meditation</li>
+          <li>Sound bath frequency</li>
+          <li>Deep tissue &amp; therapeutic massage</li>
+        </ul>
+        <div class="service-pricing">
+          <span class="price-promo">$135</span>
+          <span class="price-orig">$185</span>
+          <span class="price-label">May Offer</span>
+        </div>
+      </div>
+
+      <div class="service-card reveal reveal-delay-3" data-type="beauty">
+        <span class="service-duration">Ancient Beauty Ritual · 60 minutes · Women Only</span>
+        <h3 class="service-name">Ancient<br>Beauty Ritual™</h3>
+        <p class="service-desc">A deeply healing experience combining facial massage and reflexology, freshly prepared herbal and botanical compress, therapeutic aromatherapy, and a mini sound bath, finished with rooted botanical skincare.</p>
+        <ul class="service-includes">
+          <li>Sound bath frequency</li>
+          <li>Facial massage &amp; reflexology</li>
+          <li>Freshly made herbal compresses</li>
+          <li>Nourishing botanical skincare</li>
+        </ul>
+        <div class="service-pricing">
+          <span class="price-promo">$95</span>
+          <span class="price-orig">$125</span>
+          <span class="price-label">May Offer</span>
+        </div>
+      </div>
+
+      <div class="service-card reveal reveal-delay-4" data-type="beauty">
+        <span class="service-duration">Ancient Beauty Ritual · 90 minutes · Women Only</span>
+        <h3 class="service-name">The Crowned<br>Ritual™</h3>
+        <p class="service-desc">The full 90-minute experience adds a devoted head and scalp ritual to the complete facial healing sequence — releasing tension, awakening circulation, and nourishing every hair follicle from the root.</p>
+        <ul class="service-includes">
+          <li>Sound bath frequency</li>
+          <li>Facial massage &amp; reflexology</li>
+          <li>Scalp massage &amp; hair growth stimulation</li>
+          <li>Freshly made herbal compresses</li>
+          <li>Nourishing botanical skincare</li>
+        </ul>
+        <div class="service-pricing">
+          <span class="price-promo">$135</span>
+          <span class="price-orig">$185</span>
+          <span class="price-label">May Offer</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOTANICAL HERITAGE -->
+<section id="botanical">
+  <div class="section-inner">
+    <span class="section-eyebrow reveal">Botanical Heritage</span>
+    <h2 class="section-title reveal reveal-delay-1">Centuries of<br><em>ancestral wisdom.</em></h2>
+    <div class="botanical-intro-grid" style="margin-top:4rem;">
+      <div class="botanical-story reveal reveal-delay-1">
+        <p>Axtaxia is a Vietnamese practitioner working with the botanical wisdom from her ancestral roots. The Ancient Beauty Ritual she offers is built around two ingredients that Vietnamese women have trusted for centuries: <strong style="color:var(--forest);font-weight:400;">turmeric</strong> and <strong style="color:var(--forest);font-weight:400;">rose.</strong></p>
+        <p>In Vietnam, turmeric — called <em>nghệ</em> — has been used on the skin for over 2,000 years. Vietnamese women applied fresh turmeric paste after childbirth to help the skin restore, tighten, and heal: it brightens uneven tone, heals scarring, reduces inflammation, and leaves the complexion with a luminosity no other plant can replicate.</p>
+        <p>Rose — called <em>hoa hồng</em> — was understood in Vietnamese traditional medicine to calm the spirit, cool heat and inflammation, and restore emotional equilibrium. Tender but enduring, rose in this ritual is not decorative. It is devotional.</p>
+        <p>Around these two ancestral ingredients, Axtaxia weaves a handcrafted botanical blend, prepared fresh before every single session.</p>
+      </div>
+      <div class="heritage-feature reveal reveal-delay-2">
+        <div class="heritage-item">
+          <h4>The Golden Turmeric (Nghệ)</h4>
+          <p>2,000+ years of Vietnamese healing wisdom. Brightens, heals, and restores the complexion with warmth and luminosity no other plant can replicate.</p>
+        </div>
+        <div class="heritage-item">
+          <h4>The Healing Rose (Hoa Hồng)</h4>
+          <p>Associated with the heart — calming the spirit, cooling inflammation, and restoring emotional equilibrium in women who are overwhelmed or depleted.</p>
+        </div>
+        <div class="heritage-item">
+          <h4>Cocoon Botanicals</h4>
+          <p>Axtaxia uses artisanal Vietnamese botanical brand Cocoon, whose formulations are rooted in the same ancestral healing tradition she grew up with.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="section-title reveal" style="font-size:1.8rem; margin-bottom:2.5rem;">The Handcrafted Blend</h3>
+    <div class="herbs-grid reveal">
+      <div class="herb-cell">
+        <div class="herb-name">Burdock Root</div>
+        <span class="herb-vn">Ngưu Bàng</span>
+        <p class="herb-desc">Quietly powerful and deeply purifying. Draws toxins and supports lymphatic flow.</p>
+      </div>
+      <div class="herb-cell">
+        <div class="herb-name">Chamomile</div>
+        <span class="herb-vn">Hoa Cúc La Mã</span>
+        <p class="herb-desc">Golden, gentle, and profoundly soothing. Reduces redness and calms sensitivity.</p>
+      </div>
+      <div class="herb-cell">
+        <div class="herb-name">Ginger</div>
+        <span class="herb-vn">Gừng</span>
+        <p class="herb-desc">Warming and circulation-stimulating. Drives heat and healing into the skin.</p>
+      </div>
+      <div class="herb-cell">
+        <div class="herb-name">Kaffir Lime Leaf</div>
+        <span class="herb-vn">Lá Chanh</span>
+        <p class="herb-desc">Deeply purifying and detoxifying. Brightens the complexion.</p>
+      </div>
+      <div class="herb-cell">
+        <div class="herb-name">Lavender</div>
+        <span class="herb-vn">Hoa Oải Hương</span>
+        <p class="herb-desc">Calms the nervous system from the very first breath.</p>
+      </div>
+      <div class="herb-cell">
+        <div class="herb-name">Lemongrass</div>
+        <span class="herb-vn">Sả</span>
+        <p class="herb-desc">Cleanses, brightens, and uplifts. Clears stagnant energy.</p>
+      </div>
+      <div class="herb-cell">
+        <div class="herb-name">Mugwort</div>
+        <span class="herb-vn">Ngải Cứu</span>
+        <p class="herb-desc">Revered in Vietnamese medicine. Warms tissue with ancient affinity for women's healing.</p>
+      </div>
+      <div class="herb-cell">
+        <div class="herb-name">Pandan Leaf</div>
+        <span class="herb-vn">Lá Dứa</span>
+        <p class="herb-desc">The miracle leaf. Botanical nourishment and gentle anti-inflammatory healing.</p>
+      </div>
+      <div class="herb-cell">
+        <div class="herb-name">Rosemary</div>
+        <span class="herb-vn">Hương Thảo</span>
+        <p class="herb-desc">Awakens circulation and stimulates hair follicles at their root.</p>
+      </div>
+      <div class="herb-cell">
+        <div class="herb-name">Sage</div>
+        <span class="herb-vn">Cây Xô Thơm</span>
+        <p class="herb-desc">Purifying, protective, and deeply ceremonial. Cleanses physical and energetic space.</p>
+      </div>
+      <div class="herb-cell">
+        <div class="herb-name">Turmeric</div>
+        <span class="herb-vn">Nghệ — Curcumin</span>
+        <p class="herb-desc">Brightens the complexion and reduces inflammation with 4,000 years of healing wisdom.</p>
+      </div>
+      <div class="herb-cell" style="background:var(--forest); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
+        <div class="herb-name" style="color:var(--cream); font-size:0.85rem; margin-bottom:0.5rem;">Rooted in heritage.<br>Prepared with devotion.<br>Delivered to your door.</div>
+        <div class="herb-vn" style="color:var(--gold);">The Nourished Standard</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GIFT -->
+<section id="gift">
+  <div class="section-inner">
+    <div class="gift-layout">
+      <div class="gift-visual reveal">
+        <div class="gift-card-mock">
+          <span class="gift-card-label">Gift Card · Nourished Mobile Massage</span>
+          <div class="gift-card-name">A ritual is a promise<br>you keep to yourself.</div>
+          <div class="gift-card-amount">$125</div>
+          <p class="gift-card-valid">Valid 6 months · Fully transferable</p>
+        </div>
+      </div>
+      <div class="gift-info reveal reveal-delay-2">
+        <span class="section-eyebrow">Gift the Ritual</span>
+        <h2 class="section-title" style="margin-bottom:1.2rem;">The most meaningful<br>gifts are <em>experiences.</em></h2>
+        <p>A Nourished gift card is an invitation to receive the Ancient Beauty Ritual or Restorative Body Massage in the comfort of one's own home — the gift of being truly nourished.</p>
+        <div class="gift-options">
+          <div class="gift-option">
+            <div class="gift-option-name">Relaxation Massage · 60 min</div>
+            <div class="gift-option-price">$125</div>
+          </div>
+          <div class="gift-option">
+            <div class="gift-option-name">Restorative Massage · 90 min</div>
+            <div class="gift-option-price">$185</div>
+          </div>
+          <div class="gift-option">
+            <div class="gift-option-name">Ancient Beauty Ritual · 60 min</div>
+            <div class="gift-option-price">$125</div>
+          </div>
+          <div class="gift-option">
+            <div class="gift-option-name">The Crowned Ritual · 90 min</div>
+            <div class="gift-option-price">$185</div>
+          </div>
+        </div>
+        <ol class="gift-steps">
+          <li>Choose your amount — we recommend a complete experience.</li>
+          <li>E-transfer to <strong style="color:var(--ink);font-weight:400;">support.nourished@gmail.com</strong></li>
+          <li>Share sender/recipient details and your delivery preference.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMOTIONS -->
+<section id="promotions">
+  <div class="section-inner">
+    <div class="reveal" style="text-align:center; max-width:600px; margin:0 auto 1rem;">
+      <span class="section-eyebrow">Current Offers</span>
+      <h2 class="section-title">Seasonal<br><em>promotions.</em></h2>
+    </div>
+    <div class="promos-grid">
+      <div class="promo-card reveal reveal-delay-1">
+        <div class="promo-icon">🌸</div>
+        <h3 class="promo-name">Blooming Season</h3>
+        <p class="promo-desc">25% off any booking made in May. The perfect time to begin your ritual — let the season be your invitation to receive.</p>
+        <span class="promo-badge">Active Now · May 2025</span>
+      </div>
+      <div class="promo-card reveal reveal-delay-2">
+        <div class="promo-icon">🤍</div>
+        <h3 class="promo-name">My Besties</h3>
+        <p class="promo-desc">Refer a friend and both of you receive $35 off your next session. Healing shared is healing amplified.</p>
+        <span class="promo-badge">Ongoing Offer</span>
+      </div>
+      <div class="promo-card reveal reveal-delay-3">
+        <div class="promo-icon">🌿</div>
+        <h3 class="promo-name">Members-Only Perks</h3>
+        <p class="promo-desc">Birthday treats, seasonal ritual early access, and bundle rewards — reserved for those who make Nourished part of their rhythm.</p>
+        <span class="promo-badge">Join Our List</span>
+      </div>
+    </div>
+    <div class="reveal" style="text-align:center; margin-top:3rem;">
+      <p style="font-size:0.85rem; color:var(--muted); margin-bottom:1.2rem;">Join our list for exclusive offers, seasonal promotions, and early access. One email per month. Never spam.</p>
+      <a href="mailto:support.nourished@gmail.com?subject=Newsletter Signup" class="btn-primary">Join the List</a>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking">
+  <div class="section-inner">
+    <div class="booking-grid">
+      <div>
+        <span class="section-eyebrow reveal">Book Your Appointment</span>
+        <h2 class="section-title reveal reveal-delay-1">Your ritual,<br><em>your rhythm.</em></h2>
+        <p class="booking-intro reveal reveal-delay-2">Simply share your name, the service you're interested in, your neighbourhood, and a few preferred dates and times. We'll take care of everything from there — confirmation, preparation instructions, and deposit details to secure your time.</p>
+        <div class="booking-contacts reveal reveal-delay-3">
+          <a href="sms:2362343620" class="booking-contact">
+            <div class="booking-contact-icon">📲</div>
+            <div>
+              <div class="booking-contact-label">Text Us</div>
+              <div class="booking-contact-value">236-234-3620</div>
+            </div>
+          </a>
+          <a href="mailto:support.nourished@gmail.com" class="booking-contact">
+            <div class="booking-contact-icon">✉️</div>
+            <div>
+              <div class="booking-contact-label">Email Us</div>
+              <div class="booking-contact-value">support.nourished@gmail.com</div>
+            </div>
+          </a>
+        </div>
+        <div class="booking-rhythm reveal reveal-delay-4">
+          <div class="rhythm-title">A ritual is a promise you keep to yourself.</div>
+          <div class="rhythm-options">
+            <div class="rhythm-option">
+              <span class="rhythm-label">Weekly</span>
+              <span>Where the ritual becomes a relationship.</span>
+            </div>
+            <div class="rhythm-option">
+              <span class="rhythm-label">Biweekly</span>
+              <span>A rhythm the body learns to trust.</span>
+            </div>
+            <div class="rhythm-option">
+              <span class="rhythm-label">Monthly</span>
+              <span>Once a month, the world stops — and you remember who you are.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="booking-policy reveal reveal-delay-2">
+        <h3 class="policy-title">Booking Policy</h3>
+        <div class="policy-items">
+          <div class="policy-item">
+            <span class="policy-key">Deposit</span>
+            <span class="policy-val">First-time clients 25% · Returning clients 50%. Accepted via e-transfer. Remaining balance due on the day of your session.</span>
+          </div>
+          <div class="policy-item">
+            <span class="policy-key">Cancellation</span>
+            <span class="policy-val">24+ hours notice allows full deposit transfer. Under 24 hours or no-shows result in a non-refundable deposit.</span>
+          </div>
+          <div class="policy-item">
+            <span class="policy-key">Late Arrivals</span>
+            <span class="policy-val">Out of reverence for all clients, your session closes gently at its scheduled time.</span>
+          </div>
+          <div class="policy-item">
+            <span class="policy-key">Priority</span>
+            <span class="policy-val">Returning clients receive priority booking. Those who make Nourished part of their rhythm deserve to have that rhythm protected.</span>
+          </div>
+          <div class="policy-item">
+            <span class="policy-key">Gift Cards</span>
+            <span class="policy-val">Valid for 6 months. Non-refundable but fully transferable.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Nourished<span>.</span></div>
+        <div class="footer-tagline">Mobile Massage · Calgary, Alberta</div>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#botanical">Botanicals</a></li>
+        <li><a href="#gift">Gift Cards</a></li>
+        <li><a href="#promotions">Promotions</a></li>
+        <li><a href="#booking">Book Now</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Nourished Mobile Massage. All rights reserved.</span>
+      <span class="footer-calgary">Calgary · Alberta · Canada</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => io.observe(el));
+
+  // Animate hero on load
+  document.querySelectorAll('.hero-left > *').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.8s, transform 0.8s';
+    el.style.transitionDelay = (i * 0.12) + 's';
+    setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'none'; }, 80);
+  });
+
+  // Service tabs
+  function showServices(type) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    document.querySelectorAll('.service-card').forEach(card => {
+      if (type === 'all' || card.dataset.type === type) {
+        card.style.display = ''; card.style.opacity = '1';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Hamburger (mobile)
+  function toggleMenu() {
+    const links = document.querySelector('.nav-links');
+    const cta = document.querySelector('.nav-cta');
+    if (links.style.display === 'flex') {
+      links.style.display = ''; cta.style.display = '';
+    } else {
+      links.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:var(--cream);padding:1.5rem 2rem;gap:1.2rem;border-bottom:1px solid var(--border);z-index:99;';
+      cta.style.cssText = 'display:block;text-align:center;margin:0 2rem;padding:0.8rem;';
+    }
+  }
+
+  // Subtle nav shrink on scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    nav.style.padding = window.scrollY > 60 ? '0.8rem 4rem' : '';
+  });
+</script>
+</body>
+</html>
